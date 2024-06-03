@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% if user.is_authenticated %}
+<h4>Bonjour {{ username}} Bienvenue dans Nemeku</h4>
+<button type submit><a href="/logout">se deconnecter</a></button>
+
+{% else %}
+
+<h4>Bienvenue sur Nemeku</h4>
+
+<button class="myButton" type submit><a href="/register">s'enregistrer</a></button>
+<button class="myButton" type submit><a href="/login">se connecter</a></button>
+{% endif %}
+
+
+{% endblock %}
