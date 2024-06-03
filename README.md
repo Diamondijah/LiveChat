@@ -14,7 +14,7 @@ Ce projet DevSecOps est réalisé dans le cadre d'un projet de classe. Il s'agit
 
 1. Clonez le dépôt :
    ```bash
-   git clone https://github.com/votre-utilisateur/votre-depot.git
-   cd votre-depot
+   git clone https://github.com/Diamondijah/LiveChat.git
+   cd LiveChat
 2. Utilisation
 3. Fonctionnalités
