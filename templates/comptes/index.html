@@ -1,16 +1,27 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 {% if user.is_authenticated %}
 <h4>Bonjour {{ username}} Bienvenue dans Nemeku</h4>
+
 <button type submit><a href="/logout">se deconnecter</a></button>
+<button type submit><a href="/rooms">Discussions</a></button>
 
 {% else %}
 
-<h4>Bienvenue sur Nemeku</h4>
+  <div class="gaucheIndex">
+  <h3>Dalal ak diam !! </h3>
+  <h1>Si Nemeku  </h1>
+   <img class="image" src="{% static 'comptes/images/canva.png' %}"/>
+  </div>
 
-<button class="myButton" type submit><a href="/register">s'enregistrer</a></button>
-<button class="myButton" type submit><a href="/login">se connecter</a></button>
+  <div class="droiteIndex">
+<button class="myButton" type submit><a href="/register">S'inscrire</a></button>
+<button class="myButton" type submit><a href="/login">Se connecter</a></button>
+</div>
+
+
+
 {% endif %}
 
 

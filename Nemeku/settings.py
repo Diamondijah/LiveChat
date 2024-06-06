@@ -40,13 +40,20 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #externes
+    'channels',
+    'ckeditor',
+    #interne
+     'room',
     'comptes',
+   
 ]
 
 MIDDLEWARE = [
@@ -78,7 +85,16 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Nemeku.wsgi.application'
+ASGI_APPLICATION = 'Nemeku.asgi.application'
 
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': { 
+            'hosts': [('127.0.0.1', 6379)]
+        }
+    }
+}
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
@@ -128,3 +144,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# STATICFILES_DIRS contient la liste des répertoires où Django cherche les fichiers statiques en plus de 'static'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]
+
+# En production, utilisez STATIC_ROOT pour collecter tous les fichiers statiques en un seul endroit
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+

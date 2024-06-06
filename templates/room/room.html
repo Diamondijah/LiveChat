@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %} {{room.name}} | {% endblock title %}
+
+{% block content %}
+
+<div class="content-wrapper">
+    <h3>Groupe: {{ room.name }}</h3>
+</div>
+
+<div class="flex-wrapper">
+    <div class="form-wrapper">
+        <form>
+            <div>
+                <textarea name="content" id="editor"></textarea>
+            </div>
+            <button id="submit-button">
+                Envoyer
+            </button>
+        </form>
+    </div>
+
+    <div class="chat-wrapper">
+        <div class="chat-messages" id="chat-messages">
+            {% for message in messages %}
+            <div class="chat-message-wrapper">
+                <p class="username"> {{message.user.username}} {{message.date_added}} </p>
+                <p class="message"> {{ message.content|safe }} </p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
+
+
+{% block scripts %}
+{{ room.slug|json_script:"json-roomname"}}
+{{ request.user.username|json_script:"json-username"}}
+
+<script type="text/javascript">
+    document.addEventListener('DOMContentLoaded', function() {
+        if (document.getElementById('editor')) {
+            CKEDITOR.replace('editor', {
+                height: '60px'
+            });
+        }
+        
+        let editor = CKEDITOR.instances.editor;
+        let roomName = JSON.parse(document.getElementById('json-roomname').textContent);
+        let userName = JSON.parse(document.getElementById('json-username').textContent);
+        const chatSocket = new WebSocket(
+            'ws://' + window.location.host + '/ws/' + roomName + '/'
+        ); 
+
+        chatSocket.onmessage = function(response){
+            console.log('on message');
+            let data = JSON.parse(response.data);
+           
+            if(data.message){
+                let html = `<div class="chat-message-wrapper">
+                                <p class="username">${data.username} ${data.date_added}</p>
+                                <p class="message">${data.message}</p>
+                            </div>`;
+                document.querySelector("#chat-messages").innerHTML += html;
+                scrollToBottom();
+            } else {
+                alert('Message vide!');
+            }
+        };
+
+        chatSocket.onclose = function(e){
+            console.log('Chat socket closed unexpectedly');
+        };
+
+        document.querySelector("#submit-button").onclick = function(e){
+            e.preventDefault();
+            let message = editor.getData();
+            chatSocket.send(JSON.stringify({
+                'message': message,
+                'username': userName,
+                'room': roomName
+            }));
+            editor.setData('');
+            return false;
+        };
+
+        function scrollToBottom(){
+            const chatMessages = document.querySelector("#chat-messages");
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        scrollToBottom();
+    });
+</script>
+{% endblock scripts %}

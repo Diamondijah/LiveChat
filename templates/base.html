@@ -5,20 +5,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-            <link rel="stylesheet" href="{% static 'comptes/style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'comptes/style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'room/style.css' %}"/>
+    <style>
+        .chat-messages {
+            height :400px;
+            overflow-y:auto;
+        }
+    </style>
 </head>
 <body>
-
     <center>
-           <img src="{% static 'comptes/images/nemeku_love.png' %}"/>
-        <h2>
-            system d'auth
-
-        </h2>
+        <h2>system d'auth</h2>
         {% block content %}
-         {% endblock %}
-
+        {% endblock %}
+        {% block scripts %}
+        {% endblock %}
     </center>
-    
+    <script src="{% static 'ckeditor/ckeditor/ckeditor.js' %}"></script>
+    <script src="{% static 'ckeditor/ckeditor-init.js' %}"></script>
+    <script src="{% static 'room/style.js' %}"></script>
 </body>
 </html>

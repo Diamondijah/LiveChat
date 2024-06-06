@@ -1,0 +1,103 @@
+/* styles.css */
+
+.discussion-group-container {
+    padding: 10px;
+    text-align: center;
+}
+
+.room-list-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.room-item {
+    width: 100%;
+    max-width: 300px;
+    margin: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.room-name {
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.join-room-link {
+    display: block;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+}
+
+.join-room-link:hover {
+    background-color: #2980b9;
+}
+
+/* styles.css */
+
+.content-wrapper {
+    padding: 1.25rem;
+    text-align: center;
+}
+
+.flex-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.form-wrapper {
+    width: 100%;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+}
+
+.chat-wrapper {
+    width: 100%;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 0.5rem;
+}
+
+#editor {
+    /* Ajoutez vos styles de zone de texte ici */
+}
+
+.submit-button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #4fd1c5;
+    color: #ffffff;
+}
+
+.submit-button:hover {
+    background-color: #38a89d;
+}
+
+.chat-messages {
+    /* Ajoutez vos styles de messages de chat ici */
+}
+
+.chat-message-wrapper {
+    padding: 1rem;
+    background-color: #edf2f7;
+    border-radius: 0.5rem;
+}
+
+
+
+
+.image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}

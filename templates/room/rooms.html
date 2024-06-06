@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %} Groupes | {% endblock title %}
+
+{% block content %}
+
+ <div class="discussion-group-container">
+
+    <h1 class="discussion-group-title">Groupes de Discussions</h1>
+
+</div>
+
+<div class="room-list-container">
+
+    {% for room in rooms %}
+        <div class="room-item">
+            <h2 class="room-name">#-{{forloop.counter}} {{ room.name }}</h2>
+            <a href="{% url 'room' room.slug %}" class="join-room-link">Rejoindre</a>
+        </div>
+    {% endfor %}
+
+</div>
+
+{% endblock content %}
