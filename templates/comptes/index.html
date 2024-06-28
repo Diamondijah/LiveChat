@@ -1,17 +1,30 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block body_class %}index-page{% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
-<h4>Bonjour {{ username}} Bienvenue dans Nemeku</h4>
-<button type submit><a href="/logout">se deconnecter</a></button>
-
-{% else %}
-
-<h4>Bienvenue sur Nemeku</h4>
-
-<button class="myButton" type submit><a href="/register">s'enregistrer</a></button>
-<button class="myButton" type submit><a href="/login">se connecter</a></button>
-{% endif %}
-
-
+<div class="index-container">
+    {% if user.is_authenticated %}
+        <h4>Bonjour {{ user.username }}, bienvenue dans Nemeku</h4>
+        <button class="myButton"><a href="/logout">Se déconnecter</a></button>
+    {% else %}
+        <h4>Bienvenue dans Nemeku, Dalal ak diamm!!!</h4>
+        <button class="myButton"><a href="/register">Créer un compte</a></button>
+        <button class="myButton"><a href="/login">Se connecter</a></button>
+    {% endif %}
+</div>
+<div class="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item">
+            <img src="{% static 'comptes/images/1.png' %}" alt="Image 1">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'comptes/images/2.png' %}" alt="Image 2">
+        </div>
+        <div class="carousel-item">
+            <img src="{% static 'comptes/images/3.png' %}" alt="Image 3">
+        </div>
+    </div>
+</div>
 {% endblock %}

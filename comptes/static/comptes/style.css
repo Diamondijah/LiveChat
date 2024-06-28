@@ -1,26 +1,210 @@
-h2 {
-    color: blue;
+/* Styles existants */
+
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-top: 20px; /* Ajout de marge pour espacer du contenu précédent */
 }
-.myButton {
-	box-shadow: 3px 4px 0px 0px #dcecfb;
-	background:linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
-	background-color:#bddbfa;
-	border-radius:15px;
-	border:1px solid #84bbf3;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:17px;
-	padding:7px 25px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #528ecc;
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
 }
-.myButton:hover {
-	background:linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
-	background-color:#80b5ea;
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
 }
-.myButton:active {
-	position:relative;
-	top:1px;
+
+.carousel-item img {
+    width: 100%;
+    display: block;
 }
+
+/* Keyframes pour l'animation */
+@keyframes slide {
+    0% { transform: translateX(0); }
+    33% { transform: translateX(-100%); }
+    66% { transform: translateX(-200%); }
+    100% { transform: translateX(0); }
+}
+
+/* Pour l'animation automatique */
+.carousel-inner {
+    animation: slide 15s infinite;
+}
+
+/* Autres styles */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 300px; /* Largeur fixe pour les champs */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box; /* Pour inclure le padding dans la largeur */
+}
+
+button[type="submit"] {
+    background-color: #0dae2d;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0dae2d;
+}
+
+/* Styles pour la page d'inscription */
+.register-page {
+    background-image: none; /* Supprimez l'image de fond */
+}
+
+.register-container {
+    background-color: #de5e03; /* Changez la couleur de fond pour compenser */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin-top: 50px;
+}
+
+.register-page img.logo {
+    display: none; /* Cachez l'image sur la page d'inscription */
+}
+
+/* Styles pour la page de connexion */
+.login-page {
+    background-image: none; /* Supprimez l'image de fond */
+}
+
+.login-container {
+    background-color: #de5e03; /* Changez la couleur de fond pour compenser */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(231, 132, 2, 0.1);
+    display: inline-block;
+    margin-top: 50px;
+}
+
+.login-page img.logo {
+    display: none; /* Cachez l'image sur la page de connexion */
+}
+
+/* Styles pour la page d'accueil */
+.index-page {
+    background-image: none; /* Supprimez l'image de fond */
+}
+
+.index-container {
+    background-color: #de5e03; /* Changez la couleur de fond pour compenser */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    margin-top: 50px;
+}
+
+.index-page img.logo {
+    display: none; /* Cachez l'image sur la page d'accueil */
+}
+
+.index-container h4 {
+    color: #333;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.index-container button.myButton {
+    background: #28a745; /* Couleur verte pour les boutons */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    margin: 10px;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.index-container button.myButton a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.index-container button.myButton:hover {
+    background: #218838;
+}
+
+.index-container button.myButton:active {
+    position: relative;
+    top: 1px;
+}
+
+.navigation-buttons {
+    margin-top: 20px;
+}
+
+.navigation-buttons a {
+    margin-right: 10px;
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.navigation-buttons a:hover {
+    background-color: #28a745;
+}
+
+.form-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.navigation-buttons a {
+    margin-right: 10px;
+}
+
+/* Styles spécifiques à l'interface utilisateur */
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-top: 20px; /* Ajout de marge pour espacer du contenu précédent */
+}
+
+.carousel-inner {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-item {
+    min-width: 100%; /* Ajuster la largeur des images */
+    box-sizing: border-box;
+}
+
+.carousel-item img {
+    width: 100%; /* Assurez-vous que les images remplissent leur conteneur */
+    display: block;
+}
+
+/* Autres styles spécifiques peuvent être ajoutés ici */
