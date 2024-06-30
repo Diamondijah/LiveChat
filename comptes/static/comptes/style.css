@@ -1,28 +1,337 @@
 h3 {
+    font-weight: bold;
+}
+
+.myButton {
+    box-shadow: 3px 4px 0px 0px #dcecfb;
+    background: linear-gradient(to bottom, #bddbfa 5%, #d7ea80 100%);
+    background-color: #bddbfa;
+    border-radius: 15px;
+    border: 1px solid #033466;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-family: Arial;
+    font-size: 17px;
+    padding: 7px 25px;
+    text-decoration: none;
+    text-shadow: 0px 1px 0px #528ecc;
+}
+
+.myButton:hover {
+    background: linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
+    background-color: #80b5ea;
+}
+
+.myButton:active {
+    position: relative;
+    top: 1px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the items horizontally */
+}
+
+.gaucheIndex {
+    flex: 0 1 40%; /* Adjust the flex-basis to reduce space */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 1px; /* Adjust the margin as needed */
+}
+
+.droiteIndex {
+    flex: 0 1 15%; /* Adjust the flex-basis to reduce space */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 1px; /* Adjust the margin as needed */
+}
+
+.image {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Centrer le conteneur du formulaire */
+.form-container {
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 2px solid #ccc; /* Bordure */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Ombre */
+    background-color: #f9f9f9; /* Couleur de fond */
+}
+
+/* Styliser les messages */
+.message {
+    color: #d9534f; /* Couleur du texte */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Styliser les labels */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* Styliser les champs de texte */
+input[type="text"],
+input[type="password"] {
+    width: calc(100% - 20px); /* Largeur des champs de texte */
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Coins arrondis */
+    box-sizing: border-box;
+}
+
+/* Styliser le bouton de soumission */
+.submit-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #2c18d8; /* Couleur de fond */
+    color: #fff; /* Couleur du texte */
+    border: none;
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    box-shadow: 0 4px #29292a; /* Ombre du bouton */
+}
+
+.submit-button:hover {
+    background-color: #b09c05; /* Couleur de fond au survol */
+}
+
+.submit-button:active {
+    background-color: #cfcdd6; /* Couleur de fond lors du clic */
+    box-shadow: 0 2px #cfcdd6; /* Ombre réduite lors du clic */
+    transform: translateY(2px); /* Déplacement du bouton lors du clic */
+}
+
+h4 {
 	font-weight: bold;
+	margin-bottom: 10px;
+	margin-top: 10px;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
+	background-color: #f9f9f9;
+	color: #000;
+	font-size: 16px;
+	text-align: center;
+	box-shadow: 0 4px #29292a;
+	transform: translateY(2px);
 	
 }
-.myButton {
-	box-shadow: 3px 4px 0px 0px #dcecfb;
-	background:linear-gradient(to bottom, #bddbfa 5%, #80b5ea 100%);
-	background-color:#bddbfa;
-	border-radius:15px;
-	border:1px solid #84bbf3;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:17px;
-	padding:7px 25px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #528ecc;
+
+/* Styles pour la section letout */
+.letout {
+    text-align: center;
+    padding: 20px;
 }
-.myButton:hover {
-	background:linear-gradient(to bottom, #80b5ea 5%, #bddbfa 100%);
-	background-color:#80b5ea;
+/* Centrer l'image dans .image-container */
+.image-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
-.myButton:active {
-	position:relative;
-	top:1px;
+
+/* Styliser le bouton de soumission */
+.submit2-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #717273; /* Couleur de fond */
+    color: #fff; /* Couleur du texte */
+    border: none;
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer;
+    font-size: 16px;
+    text-align: center;
+    box-shadow: 0 4px #29292a; /* Ombre du bouton */
 }
+
+.submit2-button:hover {
+    background-color: #b09c05; /* Couleur de fond au survol */
+}
+
+.submit2-button:active {
+    background-color: #cfcdd6; /* Couleur de fond lors du clic */
+    box-shadow: 0 2px #cfcdd6; /* Ombre réduite lors du clic */
+    transform: translateY(2px); /* Déplacement du bouton lors du clic */
+}
+
+.join-room-link:hover {
+	text-decoration: none;
+    color: #ffffff;
+	font-weight: bold;
+	font-size: 16px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
+	background-color: #2c18d8;
+
+	
+}
+.join-room-link {
+	text-decoration: none;
+    color: #ffffff;
+	font-weight: bold;
+	font-size: 16px;
+	padding: 10px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
+	background-color: #b09c05;
+
+	
+}
+
+.room {
+    padding: 20px;
+    background-color: #f5f5f5; /* Couleur de fond */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/* Container pour le titre du groupe de discussion */
+.discussion-group-container {
+    text-align: center;
+    margin-bottom: 20px;
+	font-family: 'Times New Roman', Times, serif;
+}
+/* Style pour le titre du groupe de discussion */
+.discussion-group-title {
+    font-size: 28px;
+    font-weight: bold;
+    color: #676769;;
+}
+
+/* Container pour la liste des salles */
+.room-list-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Style pour chaque item de salle */
+.room-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+/* Style pour le nom de la salle */
+.room-name {
+    font-size: 20px;
+    font-weight: 500;
+    color: #676769;
+}
+
+/* Styles pour la section room */
+.room {
+    padding: 20px;
+    background-color: #f5f5f5; /* Couleur de fond */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 800px;
+    margin: 0 auto; /* Centrer la section */
+}
+
+/* Container principal */
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Titre du groupe */
+h3 {
+    text-align: center;
+    font-size: 24px;
+    color: #333;
+}
+
+/* Flex container pour le formulaire et les messages */
+.flex-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Formulaire */
+.form-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#editor {
+    width: 100%;
+    height: 60px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+/* Bouton de soumission */
+#submit-button {
+    align-self: flex-end;
+    padding: 10px 20px;
+    background-color: #26199c;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#submit-button:hover {
+    background-color: #b09c05;
+}
+
+/* Container pour les messages */
+.chat-wrapper {
+    flex: 1;
+    overflow-y: auto;
+    background-color: #ced3d4;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    max-height: 400px; /* Limite la hauteur de la boîte de messages */
+}
+
+/* Messages */
+.chat-message-wrapper {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.username {
+    font-weight: bold;
+    color: #26199c;
+}
+
+.message {
+    margin-top: 5px;
+    color: #333;
+}
+
 
