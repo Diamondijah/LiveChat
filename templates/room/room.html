@@ -6,17 +6,7 @@
 <div class="room">
     <div class="content-wrapper">
         <h3>Groupe: {{ room.name }}</h3>
-        <div class="flex-wrapper">
-            <div class="form-wrapper">
-                <form>
-                    <div>
-                        <textarea name="content" id="editor"></textarea>
-                    </div>
-                    <button class="myButton" id="submit-button">
-                        Envoyer
-                    </button>
-                </form>
-            </div>
+    
             <div class="chat-wrapper">
                 <div class="chat-messages" id="chat-messages">
                     {% for message in messages %}
@@ -26,6 +16,17 @@
                     </div>
                     {% endfor %}
                 </div>
+            </div>
+            <div class="flex-wrapper">
+            <div class="form-wrapper">
+                <form>
+                    <div>
+                        <textarea name="content" id="editor"></textarea>
+                    </div>
+                    <button class="submit-button" id="submit-button">
+                        Envoyer
+                    </button>
+                </form>
             </div>
         </div>
     </div>

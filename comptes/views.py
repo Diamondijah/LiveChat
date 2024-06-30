@@ -23,16 +23,16 @@ def register(request):
         email = request.POST.get('email')
         password = request.POST['password']
         password1 = request.POST.get('password1')
-        if User.objects.filter(username=username):
+        if User.objects.filter(username=username).exists():
             messages.error(request, 'Ce nom a deja été pris')
             return redirect('register')
-        if User.objects.filter(email=email):
+        if User.objects.filter(email=email).exists():
             messages.error(request, 'Cet email a deja été pris')
             return redirect('register')
         if not username.isalnum():
             messages.error(request, 'le nom d\'utilisateur doit être alphanumérique')
             return redirect('register')
-        if password!=  password1:
+        if password != password1:
             messages.error(request, 'les mots de passe ne sont pas identiques')
             return redirect('register')
         
@@ -44,7 +44,7 @@ def register(request):
         messages.success(request, 'votre compte a ete créé avec succés')
         #Envoi mail  de bienvenu
         subject = "Bienvenue sur Nemeku !"
-        message = "Bienvenue" + mon_utilisateur.first_name + mon_utilisateur.last_name + "\n Nous sommes ravis de vous compter parmi la communauté de Nemeku ! \n\n\n Merci \n\n l'équipe de support Nemeku"
+        message = "Bienvenue " + mon_utilisateur.first_name + " " + mon_utilisateur.last_name + "\n Nous sommes ravis de vous compter parmi la communauté de Nemeku ! \n\n\n Merci \n\n l'équipe de support Nemeku"
         from_email = settings.EMAIL_HOST_USER
         to_list  = [mon_utilisateur.email]
         send_mail(subject, message, from_email, to_list, fail_silently=True)
@@ -68,8 +68,6 @@ def register(request):
         email.fail_silently = False
         email.send()
 
-
-
         return redirect('login')
     return render(request, 'comptes/register.html')
 
@@ -78,14 +76,15 @@ def logIn(request):
         username = request.POST['username']
         password = request.POST['password']
         user = authenticate(username=username, password=password)
-        my_user = User.objects.get(username=username)
         if user is not None:
             login(request, user)
             username = user.username            
             return render(request, 'comptes/index.html', {'username': username})
-        elif my_user.is_active == False:
-            messages.error(request, 'Votre compte n\'est pas activé')
-            return redirect('login')
+        elif User.objects.filter(username=username).exists():
+            my_user = User.objects.get(username=username)
+            if not my_user.is_active:
+                messages.error(request, 'Votre compte n\'est pas activé')
+                return redirect('login')
         else:
             messages.error(request, 'votre compte n\'existe pas')
             return redirect('login')
@@ -114,3 +113,5 @@ def activate(request, uidb64, token):
     else :
         messages.error(request, 'Erreur lors de l n\'activation')
         return redirect('home')
+
+
